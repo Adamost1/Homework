@@ -1,35 +1,25 @@
 // Alvin Ye
 // APCS1 pd1
-// HW43 -- Array of Titanium
-// 2017-11-29 
+// HW45--In America, the Driver Sits on the Left
+// 2017-12-2
 
 /***************************
- * class SuperArray version 3.0
- * ( SKELETON )
- * Wrapper class for array. Facilitates resizing,
- * resizing
- * expansion
- * read/write capability on elements
- * adding an element to end of array
- * adding an element at specified index
- * removing an element at specified index
- *
- * ...and now SuperArray complies with the specifications of the
- * ListInt interface. (ListInt.java must be in same dir as this file)
+ * class SuperArray version 4.0
+    Added functionality for all Objects to elements in the array
  ***************************/
 
-public class SuperArray implements ListInt
+public class SuperArray implements List
 {
   //SuperArray implements ListInt, meaning it specifies the schematics of the methods established in ListInt
 
-  private int[] _data;  //underlying container
+  private Object[] _data;  //underlying container
   private int _size;    //number of elements in this SuperArray
 
 
   //default constructor – initializes 10-item array
   public SuperArray()
   {
-    _data = new int[10];
+    _data = new Object[10];
     _size = 0;
   }
 
@@ -52,7 +42,7 @@ public class SuperArray implements ListInt
   //double capacity of SuperArray
   private void expand()
   {
-    int[] temp = new int[ _data.length * 2 ];
+    Object[] temp = new Object[ _data.length * 2 ];
     for( int i = 0; i < _data.length; i++ )
       temp[i] = _data[i];
     _data = temp;
@@ -60,57 +50,71 @@ public class SuperArray implements ListInt
 
 
   //accessor -- return value at specified index
-  public int get( int index )
+  public java.lang.Object get( int index )
   {
+      if((index < 0) || (index >= _size)){
+	  throw new ArrayIndexOutOfBoundsException("Cannot get value at index. Index out of range");
+      }
     return _data[index];
   }
 
 
-  //mutator -- set value at index to newVal,
+  //mutator -- set value at index to o,
   //           return old value at index
-  public int set( int index, int newVal )
+  public java.lang.Object set( int index, java.lang.Object o )
   {
-    int temp = _data[index];
-    _data[index] = newVal;
+      if(index < 0 || index >= _size){
+	  throw new ArrayIndexOutOfBoundsException("Cannot set value at index. Index out of range");
+      }
+    Object temp = _data[index];
+    _data[index] = o;
     return temp;
   }
 
 
   //adds an item after the last item
-  public boolean add( int newVal )
+    public boolean add( java.lang.Object o )
   {
-    add( _size, newVal );
+    add( _size, o );
 
     return true;
   }
 
 
   //inserts an item at index
-  public void add( int index, int newVal )
+  public void add( int index, java.lang.Object o )
   {
     //first expand if necessary
     if ( _size >= _data.length )
       expand();
+
+    if((index < 0) || (index > _size)){
+      throw new IndexOutOfBoundsException("Cannot add value at that index. Index out of range"); 
+    }
     for( int i = _size; i > index; i-- ) {
       _data[i] = _data[i-1]; //each slot gets value of left neighbor
     }
-    _data[index] = newVal;
+    _data[index] = o;
     _size++;
   }
 
 
   //removes the item at index
   //shifts elements left to fill in newly-empted slot
-  public int remove( int index )
+  public java.lang.Object remove( int index )
   {
-    int returnInt = _data[index];
+    Object returnObject = _data[index];
+
+    if(index < 0 || index >= _size){
+    throw new ArrayIndexOutOfBoundsException("Cannot remove value at index. Index out of range");
+      }
 
     for( int i = index; i < _size - 1; i++ ) {
       _data[i] = _data[i+1];
     }
     _size--;
 
-    return returnInt;
+    return returnObject;
   }
 
 
@@ -126,16 +130,21 @@ public class SuperArray implements ListInt
   public static void main( String[] args )
   {
 
-    ListInt mayfield = new SuperArray();
+    List junefield = new SuperArray(); //this is an array to be added into mayfield array
+    junefield.add("String");
+    junefield.add(3.1415);
+    junefield.add(500);
+
+    List mayfield = new SuperArray();
     System.out.println("Printing empty SuperArray mayfield...");
     System.out.println(mayfield);
 
 //when printing the return value of a method, it also runs the method
     System.out.println("Adding value. Should return true:\n" + mayfield.add(5));
-    System.out.println("Adding value. Should return true:\n" + mayfield.add(4));
-    System.out.println("Adding value. Should return true:\n" + mayfield.add(3));
-    System.out.println("Adding value. Should return true:\n" + mayfield.add(2));
-    System.out.println("Adding value. Should return true:\n" + mayfield.add(1));
+    System.out.println("Adding value. Should return true:\n" + mayfield.add(4.12321));
+    System.out.println("Adding value. Should return true:\n" + mayfield.add("3"));
+    System.out.println("Adding value. Should return true:\n" + mayfield.add("Alvin"));
+    System.out.println("Adding value. Should return true:\n" + mayfield.add(junefield));
 
     System.out.println("Printing populated SuperArray mayfield...");
     System.out.println(mayfield);
@@ -159,8 +168,9 @@ public class SuperArray implements ListInt
     System.out.println("Printing SuperArray mayfield post-insert...");
     System.out.println(mayfield);
 
-
-
+    System.out.println("\nShould return Error message: \n");
+    System.out.print(mayfield.get(-1));
+    mayfield.set(100, 999);
 
 
   }//end main()
