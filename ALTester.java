@@ -7,19 +7,19 @@
 import java.util.ArrayList;
 
 public class ALTester{
-//Since ArrayList is being imported, all of its methods are already available to ALTester, so it does not need to be implemented.
+    //Since ArrayList is being imported, all of its methods are already available to ALTester, so it does not need to be implemented.
 
 
-//returns true if list is sorted from least to greatest, and false otherwise
-	public static boolean checkSorted(ArrayList<Comparable> foo){
+    //returns true if list is sorted from least to greatest, and false otherwise
+    public static boolean checkSorted(ArrayList<Comparable> foo){
 		
-		for(int i = 0; i < foo.size() - 1; i ++){ //it is foo.size()-1, so that foo.get(i+1) won't be out of range 
-			if((int) foo.get(i) > (int) foo.get(i + 1)){
-				return false;
-			}
-		}
-		return true;
+	for(int i = 0; i < foo.size() - 1; i ++){ //it is foo.size()-1, so that foo.get(i+1) won't be out of range 
+	    if((int) foo.get(i) > (int) foo.get(i + 1)){
+		return false;
+	    }
 	}
+	return true;
+    }
 
 
     public static void main(String[] args){
