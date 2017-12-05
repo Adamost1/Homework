@@ -21,34 +21,22 @@ public class ALTester{
 	return true;
     }
 
+    //populates an array with a desginated number of random integers
+    public static void populateArray(ArrayList<Comparable> foo, int numValues){
+    	int i = 0;
+
+    	while(i < numValues){
+    		foo.add( (int) (Math.random() * 100) ) ;
+    		i ++;
+    	}
+    }
+
 
     public static void main(String[] args){
 	ArrayList<Comparable> foo = new ArrayList<Comparable>();
 	ArrayList<Comparable> food = new ArrayList<Comparable>();
 
-	foo.add((int) (Math.random() * 100));
-	foo.add((int) (Math.random() * 100));
-	foo.add((int) (Math.random() * 100));
-	foo.add((int) (Math.random() * 100));
-	foo.add((int) (Math.random() * 100));
-	foo.add((int) (Math.random() * 100));
-	foo.add((int) (Math.random() * 100));
-	foo.add((int) (Math.random() * 100));
-	foo.add((int) (Math.random() * 100));
-	foo.add((int) (Math.random() * 100));
-	foo.add((int) (Math.random() * 100));
-	foo.add((int) (Math.random() * 100));
-	foo.add((int) (Math.random() * 100));
-	foo.add((int) (Math.random() * 100));
-	foo.add((int) (Math.random() * 100));
-	foo.add((int) (Math.random() * 100));
-	foo.add((int) (Math.random() * 100));
-	foo.add((int) (Math.random() * 100));
-	foo.add((int) (Math.random() * 100));
-	foo.add((int) (Math.random() * 100));
-	foo.add((int) (Math.random() * 100));
-	foo.add((int) (Math.random() * 100));
-	foo.add((int) (Math.random() * 100));
+	populateArray(foo, 23); //populates array in foo with 23 random integers 
 
 
 	System.out.println(foo); //should have 23 elements
