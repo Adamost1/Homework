@@ -1,7 +1,7 @@
 //Alvin Ye
 //APCS1 pd1
-//HW46--Al<B> Sorted!.
-//2017-12-4
+//HW47-- ascending
+//2017-12-5
 
 
 import java.util.ArrayList;
@@ -21,7 +21,7 @@ public class OrderedArrayList{
 	return true;
     }
 
-    //populates an array with a desginated number of random integers
+    //populates an array with a designated number of random integers
     public static void populateArray(ArrayList<Comparable> foo, int numValues){
     	int i = 0;
 
@@ -32,9 +32,26 @@ public class OrderedArrayList{
     }
 
 
+//sorts the objects in an array from least to greatest
+    public static void sort(ArrayList<Comparable> foo){
+
+	for(int counter = foo.size(); counter > 0; counter --){//this counter just loops the for loop many times, enough to sort the whole array (number of loops determined by the size of the foo array)
+    	for(int i = 0; i < foo.size() - 1; i++){ //swaps every two consective element in an array, putting the smaller value first
+
+    			int tempVal = Math.min((int)foo.get(i), (int)foo.get(i + 1));
+
+    			foo.set(i+1, Math.max((int)foo.get(i), (int)foo.get(i + 1)));
+    			foo.set(i, tempVal);    		
+    	}
+    }
+	}
+
+
+
     public static void main(String[] args){
 	ArrayList<Comparable> foo = new ArrayList<Comparable>();
 	ArrayList<Comparable> food = new ArrayList<Comparable>();
+	ArrayList<Comparable> fool = new ArrayList<Comparable>();
 
 	populateArray(foo, 23); //populates array in foo with 23 random integers 
 
@@ -47,17 +64,26 @@ public class OrderedArrayList{
 	food.add(1);
 	food.add(2);
 	food.add(3);
-	food.add(4);
+	food.add(3);
 	food.add(4);
 	food.add(4);
 
 	System.out.println(food);
 	System.out.println("Size of Array: " + food.size());
-
 	System.out.println("Array is sorted?: " + checkSorted(food)); //expect true
 
+
+	populateArray(fool, 13);
+
+	System.out.println("\n" + fool);
+	System.out.println("Size of Array: " + fool.size());
+
+	System.out.println("Array is sorted?: " + checkSorted(fool)); //expect false
+	System.out.println("Sorted array:");
+	sort(fool);
+	System.out.println(fool);
 
 
 
     }
-}
+}//end class
