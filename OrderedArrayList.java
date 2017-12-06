@@ -26,25 +26,25 @@ public class OrderedArrayList{
     	int i = 0;
 
     	while(i < numValues){
-    		foo.add( (int) (Math.random() * 100) ) ;
-    		i ++;
+	    foo.add( (int) (Math.random() * 100) ) ;
+	    i ++;
     	}
     }
 
 
-//sorts the objects in an array from least to greatest
+    //sorts the objects in an array from least to greatest
     public static void sort(ArrayList<Comparable> foo){
 
 	for(int counter = foo.size(); counter > 0; counter --){//this counter just loops the for loop many times, enough to sort the whole array (number of loops determined by the size of the foo array)
-    	for(int i = 0; i < foo.size() - 1; i++){ //swaps every two consective element in an array, putting the smaller value first
+	    for(int i = 0; i < foo.size() - 1; i++){ //swaps every two consective element in an array, putting the smaller value first
 
-    			int tempVal = Math.min((int)foo.get(i), (int)foo.get(i + 1));
+		int tempVal = Math.min((int)foo.get(i), (int)foo.get(i + 1));
 
-    			foo.set(i+1, Math.max((int)foo.get(i), (int)foo.get(i + 1)));
-    			foo.set(i, tempVal);    		
-    	}
-    }
+		foo.set(i+1, Math.max((int)foo.get(i), (int)foo.get(i + 1)));
+		foo.set(i, tempVal);    		
+	    }
 	}
+    }
 
 
 
