@@ -46,6 +46,37 @@ public class OrderedArrayList{
 	}
     }
 
+public static void addBin(ArrayList<Comparable> foo, Comparable newVal){
+ 
+  int upperBound = foo.size() - 1;
+  int lowerBound = 0;
+  int index = ((upperBound + lowerBound) / 2);
+
+  while(  (newVal.compareTo(foo.get(index))) != 0  ){
+
+    if(  (newVal.compareTo(foo.get(index))) == 0  ){ //integer division may truncate the index, so check one higher up just in case 
+      foo.set(index + 1, newVal);
+      return;
+    }
+
+    else if(  (newVal.compareTo(foo.get(index))) < 0  ){
+      upperBound = index - 1;
+      index = ((upperBound + lowerBound) / 2);
+
+    }
+
+    else if( (newVal.compareTo(foo.get(index))) > 0 ){
+      lowerBound = index + 1;
+      index = ((upperBound + lowerBound) / 2);
+    }
+
+
+  }
+
+  foo.set(index, newVal);
+  return;
+
+}
 
 
     public static void main(String[] args){
@@ -75,6 +106,11 @@ public class OrderedArrayList{
 
 	populateArray(fool, 13);
 
+	System.out.println("\nBefore Adding: " + fool);
+	addBin(fool, 32);
+	System.out.println("AfterAdding: " + fool);
+
+/*Test for sort method===============
 	System.out.println("\n" + fool);
 	System.out.println("Size of Array: " + fool.size());
 
@@ -82,6 +118,8 @@ public class OrderedArrayList{
 	System.out.println("Sorted array:");
 	sort(fool);
 	System.out.println(fool);
+=====================*/
+
 
 
 
