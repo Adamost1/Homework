@@ -9,10 +9,10 @@ public class MySorts{
 
 
 /*===================================
-bubbleSort is O(logn) because it is a
-very efficient algorithm with large 
-arrays and doesn't require many more
-passes as the data size increases.
+bubbleSort is O(n^2) because for each
+element, you need to iterate through
+the whole array in order to swap or 
+pass every adjacent pair of numbers.
 ====================================*/
 
     // VOID version of bubbleSort
@@ -62,10 +62,12 @@ greatest number to move to the end
 
 /*===================================
 insertionSort is O(n^2) because for 
-every element, you need to iterate 
-through almost all of the whole data 
-set again to find the index to insert
-the number.
+each element, you need to iterate 
+through the whole sorted array to find
+out where to insert the number. At 
+smaller arrays, its more efficient,
+but at larger arrays it follows the 
+n^2 trend.
 ====================================*/
 
     // VOID version of InsertionSort
