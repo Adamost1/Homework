@@ -9,10 +9,16 @@ public class MySorts{
 
 
 /*===================================
+Worst Case: array is in opposite order
 bubbleSort is O(n^2) because for each
 element, you need to iterate through
 the whole array in order to swap or 
 pass every adjacent pair of numbers.
+
+Best Case: all already in order
+O(n) because it will iterate 
+through the whole array and not need
+to swap anything.
 ====================================*/
 
     // VOID version of bubbleSort
@@ -36,10 +42,17 @@ pass every adjacent pair of numbers.
 
 
 /*===================================
+Worst Case: array is in opposite order
 selectionSort is O(n^2) because for
 element, you need to iterate through
 almost the whole array to find the 
-greatest number to move to the end 
+greatest number to move to the end. 
+
+Best Case: all already in order
+O(n) because it will just need to
+iterate through the array once and
+not need to swap any element anywhere
+except to its own index
 ====================================*/
     public static void selectionSort( ArrayList<Comparable> data ) 
     {
@@ -61,13 +74,17 @@ greatest number to move to the end
 
 
 /*===================================
+Worst Case: alternating numbers {big, small, big...}
 insertionSort is O(n^2) because for 
 each element, you need to iterate 
-through the whole sorted array to find
-out where to insert the number. At 
-smaller arrays, its more efficient,
-but at larger arrays it follows the 
-n^2 trend.
+through almost the whole sorted array to find
+out where to insert the number. 
+
+Best Case: all already in order
+O(n) because you only need to iterate
+through the array once and not need to
+insert or remove anything, except to 
+its own index
 ====================================*/
 
     // VOID version of InsertionSort
