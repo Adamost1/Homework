@@ -1,11 +1,19 @@
 //Alvin Ye (Team Blue Tigers) (Row number 4, from the door)
 //APCS1 pd1
-//HW54--One File to Bring Them All
-//2017-12-13
+//HW55--Never Fear, Big Oh is Here!
+//2017-12-14
 
 import java.util.ArrayList;
 
 public class MySorts{
+
+
+/*===================================
+bubbleSort is O(logn) because it is a
+very efficient algorithm with large 
+arrays and doesn't require many more
+passes as the data size increases.
+====================================*/
 
     // VOID version of bubbleSort
     // Rearranges elements of input ArrayList
@@ -25,6 +33,40 @@ public class MySorts{
 	}
     }//end bubbleSort
 
+
+
+/*===================================
+selectionSort is O(n^2) because for
+element, you need to iterate through
+almost the whole array to find the 
+greatest number to move to the end 
+====================================*/
+    public static void selectionSort( ArrayList<Comparable> data ) 
+    {
+	//note: this version places greatest value at rightmost end,
+
+	//maxPos will point to position of SELECTION (greatest value)
+	int maxPos;
+
+	for( int pass = data.size()-1; pass > 0; pass-- ) {
+	    maxPos = 0;
+	    for( int i = 1; i <= pass; i++ ) {
+		if ( data.get(i).compareTo( data.get(maxPos) ) > 0 )
+		    maxPos = i;
+	    }
+	    data.set( maxPos, ( data.set( pass, data.get(maxPos) ) ) );
+	}
+    }//end selectionSort
+
+
+
+/*===================================
+insertionSort is O(n^2) because for 
+every element, you need to iterate 
+through almost all of the whole data 
+set again to find the index to insert
+the number.
+====================================*/
 
     // VOID version of InsertionSort
     // Rearranges elements of input ArrayList
@@ -46,25 +88,10 @@ public class MySorts{
 		    break; 
 	    }
 	}
-    }//end insertionSortV
+    }//end insertionSort
 
     
 
-    public static void selectionSort( ArrayList<Comparable> data ) 
-    {
-	//note: this version places greatest value at rightmost end,
 
-	//maxPos will point to position of SELECTION (greatest value)
-	int maxPos;
-
-	for( int pass = data.size()-1; pass > 0; pass-- ) {
-	    maxPos = 0;
-	    for( int i = 1; i <= pass; i++ ) {
-		if ( data.get(i).compareTo( data.get(maxPos) ) > 0 )
-		    maxPos = i;
-	    }
-	    data.set( maxPos, ( data.set( pass, data.get(maxPos) ) ) );
-	}
-    }//end selectionSortV
 
 }
