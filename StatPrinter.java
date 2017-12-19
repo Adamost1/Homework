@@ -61,12 +61,10 @@ public class StatPrinter {
     public StatPrinter( ArrayList <Integer> data )  // O(n^2)
     { 
       int freq;
-      int compareVal;
-      _frequency = new ArrayList<Integer>();
+      _frequency = new ArrayList<Integer>(); //initializes _frequency
 
       for(int pass = 0; pass <= max(data); pass ++){ //makes sure it doesn't go beyong max value
-        freq = 0;
-        compareVal = pass;
+        freq = 0;           //resets freq between every index
         for(Integer c: data){
           if(c == pass){
             freq ++;
