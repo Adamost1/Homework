@@ -19,7 +19,7 @@ public class MatrixFinder {
 	int r = 0;
 	int x = matrix[0][c];
 
-	while ( x != target)
+	while ( x != target) 
 	    {
 		if ( x < target)   // if current elem is less than index
 		    {
@@ -31,26 +31,26 @@ public class MatrixFinder {
 
 			    else{ // it iterates through the last row and updates x, using the while loop to check if x is equal to target
 				c--;
-				x = matrix[r][c]; 
+				x = matrix[r][c]; //x is updated so the while loop can check to see if it found the target
 			    }
 			    
 		    	}
 
-			else{
-			    r++;   // go down to next row
-			    c = matrix.length - 1;
-			    x = matrix[r][c];
+			else{ // if it is not at the last row, it will just move down one row
+			    r++;  
+			    c = matrix.length - 1; //resets c to the last column
+			    x = matrix[r][c]; //x is updated so the while loop can check to see if it found the target
 			}
 		    }
 
 		else
 		    {
-		    	if( c - 1 < 0){
+		    	if( c == 0){ //if it is at column 0, it means that the value has not been found and doesn't exist in array
 			    return "(-1,-1)";
 		    	}
-		    	else{
+		    	else{ // it iterates through the current  row and updates x, using the while loop to check if x is equal to target
 			    c--;
-			    x = matrix[r][c];
+			    x = matrix[r][c]; //x is updated so the while loop can check to see if it found the target
 			}
 
 		    }
@@ -58,7 +58,7 @@ public class MatrixFinder {
 
 	    } // end while loop
 
-	return ("(" + r + "," +  c + ")");
+	return ("(" + r + "," +  c + ")"); // if it breaks out of the while loop, it means that the value has been found. Returns the row and column coordinates.
     } // end method finder
 
 
