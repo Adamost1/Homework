@@ -21,7 +21,7 @@ public class MatrixFinder {
 
 	while ( x != target) 
 	    {
-		if ( x < target)   // if current elem is less than index
+		if ( x < target)   // if current elem is less than target
 		    {
 		    	if( r + 1 >= matrix.length){ //if it is currently at the last row, it has to iterate through the row
 
@@ -43,7 +43,7 @@ public class MatrixFinder {
 			}
 		    }
 
-		else
+		else //if current element is not less than target, it means the value has to be in the current row, so it iterates through row
 		    {
 		    	if( c == 0){ //if it is at column 0, it means that the value has not been found and doesn't exist in array
 			    return "(-1,-1)";
