@@ -88,15 +88,147 @@ public class MatrixFinder {
     public static void main(String[] args)
     {
 
+//=====================================================================================================================
+//=====================================================================================================================
+   System.out.println("\n\n============== Running 10 times for a new random 2,000 x 2,000 Matrix ==============");
+   int[][] matrix0 = randomMatrix(2000);
+
+   long before0 = System.currentTimeMillis();
+
+        for(int counter = 0; counter < 11; counter++){
+   		finder(matrix0, matrix0[matrix0.length - 1][0]);
+        }
+   long after0 = System.currentTimeMillis();
+
+    System.out.print("\nTime Before: ");
+    System.out.println(before0);
+
+    System.out.print("\nTime After: ");
+    System.out.println(after0);
+
+    System.out.println("\nMilliseconds Elapsed: ");
+    System.out.println(after0 - before0);
+
+//=====================================================================================================================
+//=====================================================================================================================
+   System.out.println("\n============== Running 10 times for a new random 4,000 x 4,000 Matrix ==============");
+   int[][] matrix1 = randomMatrix(4000);
+
+   long before1 = System.currentTimeMillis();
+
+    for(int counter = 0; counter < 11; counter++){
+   	finder(matrix1, matrix1[matrix1.length - 1][0]);
+   }
+   long after1 = System.currentTimeMillis();
+
+    System.out.print("\nTime Before: ");
+    System.out.println(before1);
+
+    System.out.print("\nTime After: ");
+    System.out.println(after1);
+
+    System.out.println("\nMilliseconds Elapsed: ");
+    System.out.println(after1 - before1);
+
+//=====================================================================================================================
+//=====================================================================================================================
+   System.out.println("\n============== Running 10 times for a new random 6,000 x 6,000 Matrix ==============");
+   int[][] matrix2 = randomMatrix(6000);
+
+   long before2 = System.currentTimeMillis();
+
+   for(int counter = 0; counter < 11; counter++){
+   	finder(matrix2, matrix2[matrix2.length - 1][0]);
+   }
+   long after2 = System.currentTimeMillis();
+
+    System.out.print("\nTime Before: ");
+    System.out.println(before2);
+
+    System.out.print("\nTime After: ");
+    System.out.println(after2);
+
+    System.out.println("\nMilliseconds Elapsed: ");
+    System.out.println(after2 - before2);
+
+//=====================================================================================================================
+//=====================================================================================================================
+   System.out.println("\n============== Running 10 times for a new random 8,000 x 8,000 Matrix ==============");
+   int[][] matrix3 = randomMatrix(8000);
+
+   long before3 = System.currentTimeMillis();
+
+        for(int counter = 0; counter < 11; counter++){
+   finder(matrix3, matrix3[matrix3.length - 1][0]);
+    }
+   long after3 = System.currentTimeMillis();
+
+    System.out.print("\nTime Before: ");
+    System.out.println(before3);
+
+    System.out.print("\nTime After: ");
+    System.out.println(after3);
+
+    System.out.println("\nMilliseconds Elapsed: ");
+    System.out.println(after3 - before3);
+
+//=====================================================================================================================
+//=====================================================================================================================
+   System.out.println("\n============== Running 10 times for a new random 10,000 x 10,000 Matrix ==============");
+   int[][] matrix4 = randomMatrix(10000);
+
+   long before4 = System.currentTimeMillis();
+
+        for(int counter = 0; counter < 11; counter++){
+   finder(matrix4, matrix4[matrix4.length - 1][0]);
+   }
+   long after4 = System.currentTimeMillis();
+
+    System.out.print("\nTime Before: ");
+    System.out.println(before4);
+
+    System.out.print("\nTime After: ");
+    System.out.println(after4);
+
+    System.out.println("\nMilliseconds Elapsed: ");
+    System.out.println(after4 - before4);
+
+//=====================================================================================================================
+//=====================================================================================================================
+
+    //**************** EDIT THESE VALUES AS YOU EDIT THE TEST CASES ***************
+    System.out.println("\n============== Useful Data ============== ");
+
+    System.out.println("Rate [milliseconds / length of  matrix (n)] of Each Test (constant number indicates O(n) runtime): ");
+    System.out.println((double) (after0 - before0) / (2000 ) );
+    System.out.println((double) (after1 - before1) / (4000 ) );
+    System.out.println((double) (after2 - before2) / (6000) );
+    System.out.println((double) (after3 - before3) / (8000) );
+    System.out.println((double) (after4 - before4) / (10000)    );
+
+    System.out.println("Average rate");
+    System.out.println((double) ((after4 - before4) - (after0 - before0)) / ((10000) - (2000) ));
+
+
+
+
+
+
+
+
+
+
+
+/*
     int[][] matrix = randomMatrix(4);
 
 //prints out string representation of matrix
     for(int[] r: matrix){
-    	System.out.print("| ");
-    	for(int i: r){
-    		System.out.print(i + " ");
-    	}
-    	System.out.print("|\n");
+        System.out.print("| ");
+        for(int i: r){
+            System.out.print(i + " ");
+        }
+        System.out.print("|\n");
     }
 
     System.out.println("\nWorst Case: finding " + matrix[matrix.length - 1][0]);
@@ -104,10 +236,10 @@ public class MatrixFinder {
 //=====================================================================================================================
 //=====================================================================================================================
     System.out.println("\n============== Running 5,000,000 times... ==============");
-	long timeBefore0 = System.currentTimeMillis();
+    long timeBefore0 = System.currentTimeMillis();
 
     for(int counter = 0; counter <= 5000000; counter ++){
-		finder(matrix, matrix[matrix.length - 1][0]);
+        finder(matrix, matrix[matrix.length - 1][0]);
     }
 
     long timeAfter0 = System.currentTimeMillis();
@@ -124,10 +256,10 @@ public class MatrixFinder {
 //=====================================================================================================================
 //=====================================================================================================================
     System.out.println("\n============== Running 10,000,000 times... ==============");
-	long timeBefore1 = System.currentTimeMillis();
+    long timeBefore1 = System.currentTimeMillis();
 
     for(int counter = 0; counter <= 10000000; counter ++){
-		finder(matrix, matrix[matrix.length - 1][0]);
+        finder(matrix, matrix[matrix.length - 1][0]);
     }
 
     long timeAfter1 = System.currentTimeMillis();
@@ -144,10 +276,10 @@ public class MatrixFinder {
 //=====================================================================================================================
 //=====================================================================================================================
     System.out.println("\n============== Running 15,000,000 times... ==============");
-	long timeBefore2 = System.currentTimeMillis();
+    long timeBefore2 = System.currentTimeMillis();
 
     for(int counter = 0; counter <= 15000000; counter ++){
-		finder(matrix, matrix[matrix.length - 1][0]);
+        finder(matrix, matrix[matrix.length - 1][0]);
     }
 
     long timeAfter2 = System.currentTimeMillis();
@@ -164,10 +296,10 @@ public class MatrixFinder {
 //=====================================================================================================================
 //=====================================================================================================================
     System.out.println("\n============== Running 20,000,000 times... ==============");
-	long timeBefore3 = System.currentTimeMillis();
+    long timeBefore3 = System.currentTimeMillis();
 
     for(int counter = 0; counter <= 20000000; counter ++){
-		finder(matrix, matrix[matrix.length - 1][0]);
+        finder(matrix, matrix[matrix.length - 1][0]);
     }
 
     long timeAfter3 = System.currentTimeMillis();
@@ -184,10 +316,10 @@ public class MatrixFinder {
 //=====================================================================================================================
 //=====================================================================================================================
     System.out.println("\n============== Running 25,000,000 times... ==============");
-	long timeBefore4 = System.currentTimeMillis();
+    long timeBefore4 = System.currentTimeMillis();
 
     for(int counter = 0; counter <= 25000000; counter ++){
-		finder(matrix, matrix[matrix.length - 1][0]);
+        finder(matrix, matrix[matrix.length - 1][0]);
     }
 
     long timeAfter4 = System.currentTimeMillis();
@@ -204,10 +336,10 @@ public class MatrixFinder {
 //=====================================================================================================================
 //=====================================================================================================================
     System.out.println("\n============== Running 30,000,000 times... ==============");
-	long timeBefore5 = System.currentTimeMillis();
+    long timeBefore5 = System.currentTimeMillis();
 
     for(int counter = 0; counter <= 30000000; counter ++){
-		finder(matrix, matrix[matrix.length - 1][0]);
+        finder(matrix, matrix[matrix.length - 1][0]);
     }
 
     long timeAfter5 = System.currentTimeMillis();
@@ -238,136 +370,7 @@ public class MatrixFinder {
     System.out.print("\nApproximate Average Slope (runs per millisecond): ");
     System.out.print((double) (30000000 - 5000000) / ((timeAfter5 - timeBefore5) - (timeAfter0 - timeBefore0))); 
 
-
-//=====================================================================================================================
-//=====================================================================================================================
-   System.out.println("\n\n============== Running 1 time for a new random 2,000 x 2,000 Matrix ==============");
-   int[][] matrix0 = randomMatrix(2000);
-
-   long before0 = System.currentTimeMillis();
-
-
-   		finder(matrix0, matrix0[matrix0.length - 1][0]);
-
-   long after0 = System.currentTimeMillis();
-
-    System.out.print("\nTime Before: ");
-    System.out.println(before0);
-
-    System.out.print("\nTime After: ");
-    System.out.println(after0);
-
-    System.out.println("\nMilliseconds Elapsed: ");
-    System.out.println(after0 - before0);
-
-//=====================================================================================================================
-//=====================================================================================================================
-   System.out.println("\n============== Running 1 time for a new random 4,000 x 4,000 Matrix ==============");
-   int[][] matrix1 = randomMatrix(4000);
-
-   long before1 = System.currentTimeMillis();
-
-
-   	finder(matrix1, matrix1[matrix1.length - 1][0]);
-
-   long after1 = System.currentTimeMillis();
-
-    System.out.print("\nTime Before: ");
-    System.out.println(before1);
-
-    System.out.print("\nTime After: ");
-    System.out.println(after1);
-
-    System.out.println("\nMilliseconds Elapsed: ");
-    System.out.println(after1 - before1);
-
-//=====================================================================================================================
-//=====================================================================================================================
-   System.out.println("\n============== Running 1 time for a new random 6,000 x 6,000 Matrix ==============");
-   int[][] matrix2 = randomMatrix(6000);
-
-   long before2 = System.currentTimeMillis();
-
-
-   	finder(matrix2, matrix2[matrix2.length - 1][0]);
-
-   long after2 = System.currentTimeMillis();
-
-    System.out.print("\nTime Before: ");
-    System.out.println(before2);
-
-    System.out.print("\nTime After: ");
-    System.out.println(after2);
-
-    System.out.println("\nMilliseconds Elapsed: ");
-    System.out.println(after2 - before2);
-
-//=====================================================================================================================
-//=====================================================================================================================
-   System.out.println("\n============== Running 1 time for a new random 8,000 x 8,000 Matrix ==============");
-   int[][] matrix3 = randomMatrix(8000);
-
-   long before3 = System.currentTimeMillis();
-
-
-   finder(matrix3, matrix3[matrix3.length - 1][0]);
-
-   long after3 = System.currentTimeMillis();
-
-    System.out.print("\nTime Before: ");
-    System.out.println(before3);
-
-    System.out.print("\nTime After: ");
-    System.out.println(after3);
-
-    System.out.println("\nMilliseconds Elapsed: ");
-    System.out.println(after3 - before3);
-
-//=====================================================================================================================
-//=====================================================================================================================
-   System.out.println("\n============== Running 1 time for a new random 10,000 x 10,000 Matrix ==============");
-   int[][] matrix4 = randomMatrix(10000);
-
-   long before4 = System.currentTimeMillis();
-
-
-   finder(matrix4, matrix4[matrix4.length - 1][0]);
-
-   long after4 = System.currentTimeMillis();
-
-    System.out.print("\nTime Before: ");
-    System.out.println(before4);
-
-    System.out.print("\nTime After: ");
-    System.out.println(after4);
-
-    System.out.println("\nMilliseconds Elapsed: ");
-    System.out.println(after4 - before4);
-
-//=====================================================================================================================
-//=====================================================================================================================
-
-    //**************** EDIT THESE VALUES AS YOU EDIT THE TEST CASES ***************
-    System.out.println("\n============== Useful Data ============== ");
-
-    System.out.println("Rate [milliseconds / length of of matrix (n)] of Each Test (constant number indicates O(n) runtime): ");
-    System.out.println((double) (after0 - before0) / 2000);
-    System.out.println((double) (after1 - before1) / 4000);
-    System.out.println((double) (after2 - before2) / 6000);
-    System.out.println((double) (after3 - before3) / 8000);
-    System.out.println((double) (after4 - before4) / 10000);
-
-
-
-
-
-
-
-
-
-
-
-
+*/
     } // end main method
 
 
