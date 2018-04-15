@@ -10,8 +10,8 @@ public class NodeQueue<T> implements Queue<T>{
 	private int size = 0;
 
 	public void enqueue(T x){
-   	 //If list is empty, initialize the first node.
-      //Both head and tail need to be set to this node
+   	 //If queue is empty, initialize the first node.
+      //Both first and last need to be set to this node
     	if(isEmpty()){
     	    LLNode<T> temp = new LLNode<T>(x, null);
     	    first = temp;
@@ -19,9 +19,9 @@ public class NodeQueue<T> implements Queue<T>{
         }
 
     	else{
-    	    LLNode<T> temp = new LLNode<T>(x, null); //makes tmp point forwards to _head
-    	    last.setNext(temp);
-    	    last = temp;
+    	    LLNode<T> temp = new LLNode<T>(x, null); //initializes an LLNode
+    	    last.setNext(temp); //adds the LLNode to the back of the queue
+    	    last = temp; //sets the last to be the new LLNode
   	     }
 
        size++;
