@@ -9,7 +9,7 @@ public class ALQueue<T> implements Queue<T>{
 
     private ArrayList<T> queue = new ArrayList<T>();
     
-    public T dequeue(){
+    public T dequeue(){       //O(1)
 	if(queue.isEmpty()){
 	    return null;
 	}
@@ -18,7 +18,7 @@ public class ALQueue<T> implements Queue<T>{
 	}
     }
 
-    public void enqueue(T x){
+    public void enqueue(T x){   //O(n) b/c you're adding to beginning and shifts all over
 	queue.add(0, x); //you need to use add at index because add() just adds to the END
     }
 
@@ -26,7 +26,7 @@ public class ALQueue<T> implements Queue<T>{
 	return queue.isEmpty();
     }
 
-    public T peekFront(){
+    public T peekFront(){    //O(1)
         return queue.get(queue.size() - 1);
     }
 
